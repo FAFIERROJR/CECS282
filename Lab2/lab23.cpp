@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <math.h>
 
 #define COLSPACE 20
 
@@ -35,7 +36,8 @@ int main(){
         cin >> balanceDue;
     
         //calculate paymentAmt
-        float paymentAmt = balanceDue * .10;
+        //ceil function prevents underpayment
+        float paymentAmt = ceil(balanceDue * .10);
 
         //display output
         //account number and name
