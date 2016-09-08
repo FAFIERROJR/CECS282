@@ -31,7 +31,7 @@ int main(){
                 }
             }
             //if perfect number
-            if(sum == candidate)
+            if(sum == candidate){
                 perfectNum= candidate;
                 isPerfect = true;
             }
