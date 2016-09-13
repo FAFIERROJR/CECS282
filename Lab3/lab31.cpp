@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <math.h>
 
 using namespace std;
 
@@ -39,9 +40,10 @@ int calculateRainfall(float rainFall[], int size){
     }
     
     // divide by number of months
-    int average = (int)(sum / size);
+    float average = ((float)sum) / ((float)size);
+    int avg = round(average);
     
-    return average;
+    return avg;
 }
 
 //classify and display each month's rainfall
@@ -52,6 +54,110 @@ void classifyAndDisplayRainfall(float rainFall[], int months){
     
     //calculate average rainfall
     int average = calculateRainfall(rainFall, months);   
+
+    //find min
+    int low = 0;
+    for(int i = 1; i < months; i++){
+        if(rainFall[low] > rainFall[i]){
+            low = i;
+        }
+    }
+
+    string lowMonth;
+    
+    switch(low){
+        case 0:
+            lowMonth = "January";
+            break;
+        case 1:
+            lowMonth = "February";
+            break;
+        case 2:
+            lowMonth = "March";
+            break;
+        case 3:
+            lowMonth = "April";
+            break;
+        case 4:
+            lowMonth = "May";
+            break;
+        case 5:
+            lowMonth = "June";
+            break;
+        case 6:
+            lowMonth = "July";
+            break;
+        case 7:
+            lowMonth = "August";
+            break;
+        case 8:
+            lowMonth = "September";
+            break;
+        case 9:
+            lowMonth = "October";
+            break;
+        case 10:
+            lowMonth = "November";
+            break;
+        case 11:
+            lowMonth = "December";
+            break;
+    }
+
+    //find max
+    int high = 0;
+    for(int i = 1; i < months; i++){
+        if(rainFall[high] < rainFall[i]){
+            high = i;
+        }
+    }
+    
+    string highMonth;
+
+    switch(high){
+        case 0:
+            highMonth = "January";
+            break;
+        case 1:
+            highMonth = "February";
+            break;
+        case 2:
+            highMonth = "March";
+            break;
+        case 3:
+            highMonth = "April";
+            break;
+        case 4:
+            highMonth = "May";
+            break;
+        case 5:
+            highMonth = "June";
+            break;
+        case 6:
+            highMonth = "July";
+            break;
+        case 7:
+            highMonth = "August";
+            break;
+        case 8:
+            highMonth = "September";
+            break;
+        case 9:
+            highMonth = "October";
+            break;
+        case 10:
+            highMonth = "November";
+            break;
+        case 11:
+            highMonth = "December";
+            break;
+    }
+    
+
+    //Display avg, high, low
+    cout << "The year's average monthly rainfall was " << average << " mm" << endl;
+    cout << highMonth << " had the highest rainfall (" << rainFall[high] << " mm)" << endl;
+    cout << lowMonth << " had the lowest rainfall (" << rainFall[low] << " mm)" << endl;
 
     //stores arbitrary deviation from average
     const int DEVIATION = int(average * .20);
@@ -65,7 +171,7 @@ void classifyAndDisplayRainfall(float rainFall[], int months){
         <<setw(RIGHT_COLUMN_SIZE) << "--------------" << endl; 
 
     //display month, rainfall, classification for each month
-    cout << fixed << showpoint << setprecision(2);
+    cout << fixed << setprecision(0);
     for(int i = 0; i < months; i ++){
         cout << setw(LEFT_COLUMN_SIZE) << i + 1 << setw(MIDDLE_COLUMN_SIZE) << rainFall[i];
         
