@@ -1,3 +1,6 @@
+//Francisco Fierro
+//Lab 32
+
 #include <iostream>
 #define ROWS 4
 #define COLS 5
