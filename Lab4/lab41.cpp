@@ -31,7 +31,7 @@ class Sales{
     public:
         void getData(){
             for(int i = 0; i < 3; i++){
-                cout << "Enter sales amount " << (i + 1) << endl;
+                cout << "Enter sales amount for month " << (i + 1) << endl;
                 cin >> sales[i];
             }
             cin.ignore();       
@@ -39,7 +39,7 @@ class Sales{
 
         void putData(){
             for(int i = 0; i < 3; i++){
-                cout << "Sales amount " << (i + 1) << ": $"
+                cout << "Sales amount for month " << (i + 1) << ": $"
                     << fixed << showpoint << setprecision(2) << sales[i] << endl;
              }
         }
