@@ -11,6 +11,7 @@ class Publication{
         float price;
     
     public:
+        //get title, price
         void getData(){
             cout << "Enter title" << endl;
             getline(cin, title);
@@ -18,6 +19,7 @@ class Publication{
             cin >> price;
         }
 
+        //print title, price
         void putData(){
             cout << "Title: " << title << endl;
             cout << "Price: : $" << fixed << setprecision(2) << showpoint << price << endl;
@@ -29,6 +31,7 @@ class Sales{
         float sales[3];
 
     public:
+        //get sales data for each month
         void getData(){
             for(int i = 0; i < 3; i++){
                 cout << "Enter sales amount for month " << (i + 1) << endl;
@@ -37,6 +40,7 @@ class Sales{
             cin.ignore();       
         }
 
+        //get sales data for each month
         void putData(){
             for(int i = 0; i < 3; i++){
                 cout << "Sales amount for month " << (i + 1) << ": $"
@@ -50,6 +54,7 @@ class Book: private Publication, private Sales{
         int pageCount;
     
     public:
+        //get all data
         void getData(){
             Publication :: getData();
             cout << "Enter page count" << endl;
@@ -57,6 +62,7 @@ class Book: private Publication, private Sales{
             Sales :: getData();
         }
         
+        //print all data
         void putData(){
             Publication :: putData();
             cout << "Page Count: " << pageCount << endl;
@@ -70,6 +76,7 @@ class Digital: private Publication, private Sales
         int capacity;
         
     public:
+        //get all data
         void getData(){
             Publication :: getData();
             cout << "Enter storage capacity" << endl;
@@ -77,7 +84,8 @@ class Digital: private Publication, private Sales
             Sales :: getData();
         }
 
-          void putData(){
+        //print all data
+        void putData(){
             Publication :: putData();
             cout << "Storage Capacity: " << capacity << "MB" << endl;
             Sales :: putData();
@@ -85,6 +93,7 @@ class Digital: private Publication, private Sales
 };
 
 
+//test
 int main(){
     Book b;
     Digital d;
