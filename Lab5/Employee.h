@@ -1,26 +1,28 @@
 #ifndef H_EMPLOYEE
 #define H_EMPLOYEE
 
+using namespace std;
+
 class Employee{
-	public:
-		void putData();
-		void setFirstName();
-		string getFirstName();
-		void setLastName();
-		string getLastName();
-		setID();
-		getID();
-		setBDay();
-		getBDay();
-		setSex();
-		getSex();
-		virtual float monthlyEarning();
+public:
+	void putData() const;
+	void setFirstName(string n);
+	string getFirstName() const;
+	void setLastName(string n);
+	string getLastName() const;
+	void setID(int i);
+	int getID() const;
+	void setBDay(int b);
+	int getBDay() const;
+	void setSex(char s);
+	char getSex() const;
+	virtual float monthlyEarning() = 0;
 		
-	private:
-		string firstName;
-		string LastName;
-		int id;
-		char sex;
-		int bDay;
+protected:
+	string firstName;
+	string lastName;
+	int id;
+	char sex;
+	int bDay;
 };
 #endif
