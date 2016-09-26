@@ -49,3 +49,6 @@ void Employee::setSex(char s){
 char Employee::getSex() const{
 	return sex;
 }
+
+Employee::Employee(string n1, string n2, int i, int b, char s): 
+	firstName(n1), lastName(n2), id(i), bDay(b), sex(s) {}

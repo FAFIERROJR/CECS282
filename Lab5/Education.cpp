@@ -25,3 +25,6 @@ void Education::setResearch(int r){
 int Education::getResearch() const{
 	return research;
 }
+
+Education::Education(string d = "MS", string m = "", int r = 0):
+	degree(d), major(m), research(r){}

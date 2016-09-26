@@ -12,6 +12,7 @@ public:
 	string getMajor() const;
 	void setResearch(int r);
 	int getResearch() const;
+	Education(string d = "MS", string m = "", int r = 0);
 
 protected:
 	string degree;

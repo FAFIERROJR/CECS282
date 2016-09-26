@@ -17,6 +17,8 @@ public:
 	void setSex(char s);
 	char getSex() const;
 	virtual float monthlyEarning() = 0;
+	Employee(string n1 = "Jane", string n2 = "Doe", int i = 0,
+		int b =1011900, char s = 'F');
 		
 protected:
 	string firstName;
