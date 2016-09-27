@@ -1,9 +1,13 @@
 #Makefile for Lab 5
 
-CPP = Employee.cpp Staff.cpp Education.cpp Faculty.h
+CPP = testMain.cpp Employee.cpp Staff.cpp Education.cpp Faculty.cpp Parttime.cpp Date.cpp
+MAIN = testMain.exe
 
 all:
-	g++ ${CPP}
+	g++ ${CPP} -o ${MAIN} 
+
+clean:
+	rm -f ${MAIN}
 
 .PHONY:
-	all
+	all clean

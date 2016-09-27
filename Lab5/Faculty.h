@@ -10,13 +10,13 @@ class Faculty: public Employee{
 public:
 	void putData();
 	void setLevel(string l);
-	string getLevel();
+	string getLevel() const;
 	void setEd(Education e);
-	Education getEd();
+	Education getEd() const;
 	float monthlyEarning();
 	Faculty(string fn = "Jane" , string ln  = "Doe" , int i = 0 , 
-		int b = 1011900, char s = 'F'	, string l = "MS", 
-		Education* e = new Education() );
+		Date b = Date(), char s = 'F'	, string l = "MS", 
+		Education e = Education());
 
 protected:
 	string level;

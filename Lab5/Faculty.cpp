@@ -1,5 +1,6 @@
 #include "Faculty.h"
-#include "consntants.h"
+#include "constants.h"
+#include "Education.h"
 #include <iostream>
 #include <iomanip>
 
@@ -28,7 +29,7 @@ void Faculty::setLevel(string l){
 	level = l;
 }
 
-string Faculty::getLevel(){
+string Faculty::getLevel() const{
 	return level;
 }
 
@@ -36,7 +37,7 @@ void Faculty::setEd(Education e){
 	ed = e;
 }
 
-Education Faculty::getEd(){
+Education Faculty::getEd() const{
 	return ed;
 }
 
@@ -52,6 +53,6 @@ float Faculty::monthlyEarning(){
 	}
 }
 
-Faculty::Faculty(string fn, string ln, int i, int b,
+Faculty::Faculty(string fn, string ln, int i, Date b,
 	 char s, string l, Education e): Employee::Employee(
-	 	fn, ln, i, b, s), level(l), ed(ed)
+	 	fn, ln, i, b, s), level(l), ed(e){}

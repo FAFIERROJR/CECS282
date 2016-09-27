@@ -4,10 +4,11 @@
 
 using namespace std;
 
-void Employee::putData() const{
+void Employee::putData(){
 	cout << "ID Employee Number: " << id << endl;
 	cout << "Employee Name: " << firstName << " " << lastName << endl;
-	cout << "Birth Date: " << bDay << endl;
+	cout << "Birth Date: ";
+	bDay.showDate();
 }
 
 void Employee::setFirstName(string n){
@@ -34,12 +35,12 @@ int Employee::getID() const{
 	return id;
 }
 
-void Employee::setBDay(int b){
-	bDay = b;
+void Employee::setBDay(int m, int d, int y){
+	bDay = Date(m,d,y);
 }
 
-int Employee::getBDay() const{
-	return bDay;
+void Employee::setBDay(Date b){
+	bDay = b;
 }
 
 void Employee::setSex(char s){
@@ -50,5 +51,5 @@ char Employee::getSex() const{
 	return sex;
 }
 
-Employee::Employee(string n1, string n2, int i, int b, char s): 
+Employee::Employee(string n1, string n2, int i, Date b, char s): 
 	firstName(n1), lastName(n2), id(i), bDay(b), sex(s) {}

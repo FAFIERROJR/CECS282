@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void Staff::putData() const{
+void Staff::putData(){
 	Employee::putData();
 	cout << "Full Time" << endl;
 	cout << "Monthly Salary" << endl;
@@ -20,10 +20,10 @@ float Staff::getHRate() const{
 	return hRate;
 }
 
-float Staff::monthlyEarning() const{
+float Staff::monthlyEarning(){
 	return hRate * STAFF_MONTHLY_HOURS_WORKED;
 }
 
 Staff::Staff(string fn, string ln, int i,
-		int b, char s, float h): Employee::Employee(fn, ln, i, b, s),
+		Date b, char s, float h): Employee::Employee(fn, ln, i, b, s),
 		hRate(h){}
