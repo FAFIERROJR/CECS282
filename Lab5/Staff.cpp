@@ -1,4 +1,5 @@
 #include "Staff.h"
+#include "constants.h"
 #include <iostream>
 #include <iomanip>
 
@@ -8,7 +9,7 @@ void Staff::putData() const{
 	Employee::putData();
 	cout << "Full Time" << endl;
 	cout << "Monthly Salary" << endl;
-	cout << fixed << showpoint <<setprecision(2) << hRate << endl;
+	cout << fixed << showpoint <<setprecision(2) << monthlyEarning() << endl;
 	}
 
 void Staff::setHRate(float hR){
@@ -19,6 +20,10 @@ float Staff::getHRate() const{
 	return hRate;
 }
 
-float Staff::monthlyEarnings(){
-	return hRate * 40.0;
+float Staff::monthlyEarning() const{
+	return hRate * STAFF_MONTHLY_HOURS_WORKED;
 }
+
+Staff::Staff(string fn, string ln, int i,
+		int b, char s, float h): Employee::Employee(fn, ln, i, b, s),
+		hRate(h){}
