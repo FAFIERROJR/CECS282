@@ -5,7 +5,7 @@
 using namespace std;
 
 void Employee::putData(){
-	cout << "ID Employee Number: " << id << endl;
+	cout << "Employee ID Number: " << id << endl;
 	cout << "Employee Name: " << firstName << " " << lastName << endl;
 	cout << "Birth Date: ";
 	bDay.showDate();
@@ -27,11 +27,11 @@ string Employee::getLastName() const{
 	return lastName;
 }
 
-void Employee::setID(int i){
+void Employee::setID(string i){
 	id = i;
 }
 
-int Employee::getID() const{
+string Employee::getID() const{
 	return id;
 }
 
@@ -51,5 +51,5 @@ char Employee::getSex() const{
 	return sex;
 }
 
-Employee::Employee(string n1, string n2, int i, Date b, char s): 
+Employee::Employee(string n1, string n2, string i, Date b, char s): 
 	firstName(n1), lastName(n2), id(i), bDay(b), sex(s) {}

@@ -12,7 +12,7 @@ public:
 	void setHRate(float hR);
 	float getHRate() const;
 	float monthlyEarning();
-	Staff(string fn = "Jane", string ln = "Doe", int i = 0, 
+	Staff(string fn = "Jane", string ln = "Doe", string i = 0, 
 		Date b = Date(), char s = 'F', float h = 0.0);
 
 protected:

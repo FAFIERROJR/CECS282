@@ -18,11 +18,10 @@ void Faculty::putData(){
 	else if(level.compare("FU") == 0){
 		title = "Full";
 	}
-	cout << title << " " << firstName << " " << lastName
+	cout << title << " Professor " << firstName << " " << lastName
 		<< endl;
 	cout << "Montly Salary: " << fixed << showpoint <<
 		setprecision(2) << monthlyEarning() << endl;
-
 }
 
 void Faculty::setLevel(string l){
@@ -53,6 +52,6 @@ float Faculty::monthlyEarning(){
 	}
 }
 
-Faculty::Faculty(string fn, string ln, int i, Date b,
+Faculty::Faculty(string fn, string ln, string i, Date b,
 	 char s, string l, Education e): Employee::Employee(
 	 	fn, ln, i, b, s), level(l), ed(e){}

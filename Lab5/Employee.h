@@ -12,20 +12,20 @@ public:
 	string getFirstName() const;
 	void setLastName(string n);
 	string getLastName() const;
-	void setID(int i);
-	int getID() const;
+	void setID(string i);
+	string getID() const;
 	void setBDay(int m, int d, int y);
 	void setBDay(Date b);
 	void setSex(char s);
 	char getSex() const;
 	virtual float monthlyEarning() = 0;
-	Employee(string n1 = "Jane", string n2 = "Doe", int i = 0,
+	Employee(string n1 = "Jane", string n2 = "Doe", string i = "0",
 		Date b = Date(), char s = 'F');
 		
 protected:
 	string firstName;
 	string lastName;
-	int id;
+	string id;
 	char sex;
 	Date bDay;
 };

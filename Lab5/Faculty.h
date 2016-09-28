@@ -14,7 +14,7 @@ public:
 	void setEd(Education e);
 	Education getEd() const;
 	float monthlyEarning();
-	Faculty(string fn = "Jane" , string ln  = "Doe" , int i = 0 , 
+	Faculty(string fn = "Jane" , string ln  = "Doe" , string i = 0 , 
 		Date b = Date(), char s = 'F'	, string l = "MS", 
 		Education e = Education());
 

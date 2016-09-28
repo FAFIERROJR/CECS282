@@ -3,11 +3,14 @@
 CPP = testMain.cpp Employee.cpp Staff.cpp Education.cpp Faculty.cpp Parttime.cpp Date.cpp
 MAIN = testMain.exe
 
-all:
+build: ${CPP}
 	g++ ${CPP} -o ${MAIN} 
+
+run: build
+	./${MAIN}
 
 clean:
 	rm -f ${MAIN}
 
 .PHONY:
-	all clean
+	all build run clean
