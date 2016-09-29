@@ -2,6 +2,7 @@
 #include "Staff.h"
 #include "Faculty.h"
 #include "Parttime.h"
+#include <typeinfo>
 
 int main(){
 	Employee *empPtr[9];
@@ -48,7 +49,7 @@ int main(){
 		bDay, 'M', 35.0, 20.00 );
 
 	for(int i = 0; i < 9; i++){
-		if(dynamic_cast<Staff*>(empPtr[i])){
+		if(typeid(*empPtr[i]) == typeid(Staff)){
 			dynamic_cast<Staff*>(empPtr[i])->putData();
 		}
 		else if(dynamic_cast<Faculty*>(empPtr[i])){
