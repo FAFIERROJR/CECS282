@@ -7,6 +7,7 @@ using namespace std;
 
 void Parttime::putData(){
 	Employee::putData();
+	cout << "Hours worked per month:" << (int)(hoursPerWeek * 4);
 	cout << "Part Time" << endl;
 	cout << "Monthly Salary" << endl;
 	cout << fixed << showpoint <<setprecision(2) << monthlyEarning() << endl;
