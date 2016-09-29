@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Staff.cpp
+
 #include "Staff.h"
 #include "constants.h"
 #include <iostream>

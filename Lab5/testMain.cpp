@@ -1,3 +1,9 @@
+
+//Francisco Fierro
+//Lab 5
+//testMain.cpp
+//Main file for Lab 5
+
 #include <iostream>
 #include "Staff.h"
 #include "Faculty.h"
@@ -5,6 +11,8 @@
 #include <typeinfo>
 
 int main(){
+
+	//create the Employees
 	Employee *empPtr[9];
 
 	Date bDay = Date(2,23,59);
@@ -48,6 +56,8 @@ int main(){
 	empPtr[8] = new Parttime("Marque", "Aldaco", "945",
 		bDay, 'M', 35.0, 20.00 );
 
+
+	//display their data
 	for(int i = 0; i < 9; i++){
 		if(typeid(*empPtr[i]) == typeid(Staff)){
 			dynamic_cast<Staff*>(empPtr[i])->putData();

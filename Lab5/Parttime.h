@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Faculty.cpp
+
 #ifndef H_PARTTIME
 #define H_PARTTIME
 

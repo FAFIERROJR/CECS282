@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Employee.h
+
 #ifndef H_EMPLOYEE
 #define H_EMPLOYEE
 

@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Faculty.h
+
 #ifndef H_FACULTY
 #define H_FACULTY
 

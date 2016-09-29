@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//constants.h
+
 #ifndef H_CONSTANTS
 #define H_CONSTANTS
 

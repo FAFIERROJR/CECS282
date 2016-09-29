@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Date.h
+
 #ifndef H_DATE
 #define H_DATE
 

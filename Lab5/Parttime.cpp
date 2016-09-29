@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Parttime.cpp
+
 #include "Parttime.h"
 #include "constants.h"
 #include <iostream>
@@ -7,7 +11,7 @@ using namespace std;
 
 void Parttime::putData(){
 	Employee::putData();
-	cout << "Hours worked per month:" << (int)(hoursPerWeek * 4);
+	cout << "Hours worked per month:" << (int)(hoursPerWeek * 4) << endl;
 	cout << "Part Time" << endl;
 	cout << "Monthly Salary" << endl;
 	cout << fixed << showpoint <<setprecision(2) << monthlyEarning() << endl;

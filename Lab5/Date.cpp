@@ -1,3 +1,7 @@
+//Francisco Fierro
+//Lab 5
+//Date.cpp
+
 #include "Date.h"
 #include <iostream>
 
