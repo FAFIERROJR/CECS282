@@ -5,6 +5,7 @@
 //Main file for Lab 5
 
 #include <iostream>
+#include <iomanip>
 #include "Staff.h"
 #include "Faculty.h"
 #include "Parttime.h"
@@ -58,16 +59,36 @@ int main(){
 
 
 	//display their data
+	float totalParttimeSalary = 0;
+	float totalEmployeeSalary = 0;
 	for(int i = 0; i < 9; i++){
-		if(typeid(*empPtr[i]) == typeid(Staff)){
-			dynamic_cast<Staff*>(empPtr[i])->putData();
+		//Buch of old code
+		//made putData() a virtual function
+		//if(typeid(*empPtr[i]) == typeid(Staff)){
+			//dynamic_cast<Staff*>(empPtr[i])->putData();
+			//totalEmployeeSalary += dynamic_cast<Staff*>(empPtr[i])->monthlyEarning();
+
+			
+		//}
+		//else if(dynamic_cast<Faculty*>(empPtr[i])){
+			//dynamic_cast<Faculty*>(empPtr[i])->putData();
+			//totalEmployeeSalary += dynamic_cast<Faculty*>(empPtr[i])->monthlyEarning();
+		//}
+		if(dynamic_cast<Parttime*>(empPtr[i])){
+			//dynamic_cast<Parttime*>(empPtr[i])->putData();
+			//totalParttimeSalary += dynamic_cast<Parttime*>(empPtr[i])->monthlyEarning();
+			//totalEmployeeSalary += dynamic_cast<Parttime*>(empPtr[i])->monthlyEarning();
+			totalParttimeSalary += empPtr[i]->monthlyEarning();
 		}
-		else if(dynamic_cast<Faculty*>(empPtr[i])){
-			dynamic_cast<Faculty*>(empPtr[i])->putData();
-		}
-		else if(dynamic_cast<Parttime*>(empPtr[i])){
-			dynamic_cast<Parttime*>(empPtr[i])->putData();
-		}
+
+		totalEmployeeSalary += empPtr[i]->monthlyEarning();
+		empPtr[i]->putData();
 		cout << "\n";
 	}
+
+		cout << "\n";
+		cout << "Total Parttime Monthly Salary: " << setprecision(2) << showpoint <<
+			fixed << totalParttimeSalary << endl;
+		cout << "Total Employee Monthly Salary: " << fixed << totalEmployeeSalary <<
+			endl;
 }

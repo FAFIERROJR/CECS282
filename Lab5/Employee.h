@@ -11,7 +11,7 @@ using namespace std;
 
 class Employee{
 public:
-	void putData();
+	virtual void putData();
 	void setFirstName(string n);
 	string getFirstName() const;
 	void setLastName(string n);
