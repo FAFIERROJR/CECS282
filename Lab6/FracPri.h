@@ -1,9 +1,9 @@
-#ifndef H_FRACPRI
-#define H_FRACPRI
+#ifndef H_FracPri
+#define H_FracPri
 
 using namespace std;
 
-public class FracPri {
+class FracPri {
 protected: 
 	int whole;
 	int numer;
@@ -15,14 +15,14 @@ public:
 	void getFraction();
 	void showFraction();
 	FracPri	addfracts(FracPri, FracPri);
-	Fracpri operator +(FracPri&);
-	Fracpri operator -(FracPri&);
-	Fracpri operator *(FracPri&);
-	Fracpri operator /(FracPri&);
-	friend Fracpri operator +(FracPri&, int&);
-	friend Fracpri operator +(int&, FracPri&);
-	Fracpri operator <(FracPri&);
-	Fracpri& operator +=(FracPri&);
+	FracPri operator +(FracPri&);
+	FracPri operator -(FracPri&);
+	FracPri operator *(FracPri&);
+	FracPri operator /(FracPri&);
+	friend FracPri operator +(FracPri&, int&);
+	friend FracPri operator +(int&, FracPri&);
+	bool operator <(FracPri&);
+	FracPri& operator +=(FracPri&);
 	friend istream& operator <<(istream&, FracPri&);
 	friend ostream& operator <<(ostream&, FracPri&);
 	FracPri reduce(FracPri);

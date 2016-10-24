@@ -4,15 +4,15 @@
 
 using namespace std;
 
-FracPri::FracPri(): whole(w), numer(n), denom(d){}
+FracPri::FracPri(): whole(0), numer(0), denom(0){}
 FracPri::FracPri(int w, int n, int d):
 	whole(w), numer(n), denom(d){}
 void FracPri::getFraction(){
 	cout << "Enter integral part: ";
 	cin >> whole;
-	out << "Enter numerator: ";
+	cout << "Enter numerator: ";
 	cin >> numer;
-	out << "Enter denominator: ";
+	cout << "Enter denominator: ";
 	cin >> denom;
 }
 
@@ -23,11 +23,11 @@ void FracPri::showFraction(){
 FracPri	FracPri::addfracts(FracPri a, FracPri b){
 	FracPri result;
 	int numer1 = a.numer + a.whole * a.denom;
-	int numer2 = b.numer + b.whole * b.denom
+	int numer2 = b.numer + b.whole * b.denom;
 	if(a.denom != b.denom){
 		//cross mutiply
 		result.denom = a.denom* b.denom;
-		result.num = numer1* b.denom + numer2 * a.denom;
+		result.numer = numer1* b.denom + numer2 * a.denom;
 	}
 	result = reduce(result);
 	result = makeProper(result);
@@ -35,61 +35,61 @@ FracPri	FracPri::addfracts(FracPri a, FracPri b){
 
 }
 
-Fracpri FracPri::operator +(FracPri& b){
+FracPri FracPri::operator +(FracPri& b){
 	FracPri result;
-	int numer1 = a.numer + a.whole * a.denom;
-	int numer2 = b.numer + b.whole * b.denom
-	if(a.denom != b.denom){
+	int numer1 = this->numer + this->whole * this->denom;
+	int numer2 = b.numer + b.whole * b.denom;
+	if(this->denom != b.denom){
 		//cross mutiply
-		result.denom = a.denom* b.denom;
-		result.num = numer1* b.denom + numer2 * a.denom;
+		result.denom = this->denom* b.denom;
+		result.numer = numer1* b.denom + numer2 * this->denom;
 	}
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
 }
 
-Fracpri FracPri::operator -(FracPri& b){
+FracPri FracPri::operator -(FracPri& b){
 	FracPri result;
-	int numer1 = this.numer + this.whole * this.denom;
-	int numer2 = b.numer + b.whole * b.denom
-	if(a.denom != b.denom){
+	int numer1 = this->numer + this->whole * this->denom;
+	int numer2 = b.numer + b.whole * b.denom;
+	if(this->denom != b.denom){
 		//cross mutiply
-		result.denom = this.denom* b.denom;
-		result.num = numer1* b.denom - numer2 * this.denom;
+		result.denom = this->denom* b.denom;
+		result.numer = numer1* b.denom - numer2 * this->denom;
 	}
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
 }
 
-Fracpri FracPri::operator *(FracPri& b){
+FracPri FracPri::operator *(FracPri& b){
 	FracPri result;
-	int numer1 = this.numer + this.whole * this.denom;
-	int numer2 = b.numer + b.whole * b.denom
-	if(a.denom != b.denom){
+	int numer1 = this->numer + this->whole * this->denom;
+	int numer2 = b.numer + b.whole * b.denom;
+	if(this->denom != b.denom){
 		//cross mutiply
-		result.denom = this.denom* b.denom;
-		result.num = numer1 * numer2;
+		result.denom = this->denom* b.denom;
+		result.numer = numer1 * numer2;
 	}
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
 }
-Fracpri FracPri::operator /(FracPri&){
+FracPri FracPri::operator /(FracPri& b){
 	FracPri result;
-	int numer1 = this.numer + this.whole * this.denom;
-	int numer2 = b.numer + b.whole * b.denom
-	if(a.denom != b.denom){
+	int numer1 = this->numer + this->whole * this->denom;
+	int numer2 = b.numer + b.whole * b.denom;
+	if(this->denom != b.denom){
 		//cross mutiply
-		result.denom = this.denom* numer2;
-		result.num = numer1* b.denom;
+		result.denom = this->denom* numer2;
+		result.numer = numer1* b.denom;
 	}
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
 }
-Fracpri FracPri::operator +(FracPri& f, int& i){
+FracPri operator +(FracPri& f, int& i){
 	FracPri result;
 
 	result.whole = f.whole + i;
@@ -98,7 +98,7 @@ Fracpri FracPri::operator +(FracPri& f, int& i){
 
 	return result;
 }
-Fracpri FracPri::operator +(int&, FracPri&){
+FracPri operator +(int& i, FracPri& f){
 	FracPri result;
 
 	result.whole = f.whole + i;
@@ -107,10 +107,25 @@ Fracpri FracPri::operator +(int&, FracPri&){
 
 	return result;
 }
-Fracpri FracPri::operator <(FracPri&);
-Fracpri& FracPri::operator +=(FracPri&);
-istream& FracPri::operator <<(istream&, FracPri&);
-ostream& FracPri::operator <<(ostream&, FracPri&);
+bool FracPri::operator <(FracPri& b){
+	if(this->whole == b.whole){
+		return (this->numer * b.denom) < (b.numer * this->denom);
+	}
+	return this->whole < b.whole;
+}
+
+FracPri& FracPri::operator +=(FracPri& b){
+	FracPri result = addfracts(*this, b);
+	return result;
+}
+
+istream& operator >>(istream& cin, FracPri& f){
+	f.getFraction();
+
+}
+ostream& operator <<(ostream& cout, FracPri& f){
+	f.showFraction();
+}
 
 //reduces a fraction to simplest terms
 //and returns proper fraction
@@ -122,7 +137,7 @@ FracPri FracPri::reduce(FracPri f){
 	int r;
 
 	if(f.numer == f.denom){
-		result;.whole = 1;
+		result.whole = 1;
 		result.numer = 0;
 		result.denom = 0;
 		return result;
@@ -132,7 +147,7 @@ FracPri FracPri::reduce(FracPri f){
 		a = f.numer;
 		b = f.denom;
 	}
-	else{m
+	else{
 		a = f.denom;
 		b = f.numer;
 	}
@@ -148,16 +163,15 @@ FracPri FracPri::reduce(FracPri f){
 	result.denom = f.denom / a;
 }
 
-FracPri FracPri::makeProper(FracPri f){
+FracPri FracPri::makeProper(FracPri b){
 	FracPri result;
 
-	FracPri result;
-	if(this.denom != b.denom){
+	if(this->denom != b.denom){
 		//cross mutiply
-		result.denom = this.denom * b.denom;
-		result.num = this.numer * b.denom + b.numer * this.denom;
+		result.denom = this->denom * b.denom;
+		result.numer = this->numer * b.denom + b.numer * this->denom;
 	}
-	result.whole = this.whole + b.whole;
+	result.whole = this->whole + b.whole;
 	while(result.denom <= result.numer){
 		result.numer -= result.denom;
 		result.whole++;
