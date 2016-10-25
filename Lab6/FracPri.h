@@ -11,6 +11,7 @@ protected:
 
 public:
 	FracPri();
+	FracPri(float&);
 	FracPri(int, int, int);
 	void getFraction();
 	void showFraction();
@@ -19,14 +20,17 @@ public:
 	FracPri operator -(FracPri&);
 	FracPri operator *(FracPri&);
 	FracPri operator /(FracPri&);
-	friend FracPri operator +(FracPri&, int&);
-	friend FracPri operator +(int&, FracPri&);
+	friend FracPri operator +(FracPri&, int);
+	friend FracPri operator +(int, FracPri&);
 	bool operator <(FracPri&);
-	FracPri& operator +=(FracPri&);
-	friend istream& operator <<(istream&, FracPri&);
+	FracPri operator +=(int);
+	friend istream& operator >>(istream&, FracPri&);
 	friend ostream& operator <<(ostream&, FracPri&);
+	FracPri operator  =(float);
+	operator float();
 	FracPri reduce(FracPri);
 	FracPri makeProper(FracPri);
+
 };
 
 #endif
