@@ -1,3 +1,7 @@
+//Francisco Fierro
+//CECS 282
+//Lab 6
+
 #include <iostream>
 #include <iomanip>
 #include "FracPri.h"
@@ -16,6 +20,8 @@ void FracPri::getFraction(){
 	cin >> denom;
 }
 
+
+//copy constructor given float
 FracPri::FracPri(float& f){
 
 	whole = (int)f;
@@ -29,13 +35,14 @@ void FracPri::showFraction(){
 
 FracPri	FracPri::addfracts(FracPri a, FracPri b){
 	FracPri result;
+	//find numerators of a and b as improper fraction
 	int numer1 = a.numer + a.whole * a.denom;
 	int numer2 = b.numer + b.whole * b.denom;
-	if(a.denom != b.denom){
-		//cross mutiply
-		result.denom = a.denom* b.denom;
-		result.numer = numer1* b.denom + numer2 * a.denom;
-	}
+	//cross mutiply
+	result.denom = a.denom* b.denom;
+	//result = a + b as an improper frac
+	result.numer = numer1* b.denom + numer2 * a.denom;
+
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
@@ -46,11 +53,9 @@ FracPri FracPri::operator +(FracPri& b){
 	FracPri result;
 	int numer1 = this->numer + this->whole * this->denom;
 	int numer2 = b.numer + b.whole * b.denom;
-	if(this->denom != b.denom){
-		//cross mutiply
-		result.denom = this->denom* b.denom;
-		result.numer = numer1* b.denom + numer2 * this->denom;
-	}
+	//cross mutiply
+	result.denom = this->denom* b.denom;
+	result.numer = numer1* b.denom + numer2 * this->denom;
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
@@ -60,11 +65,12 @@ FracPri FracPri::operator -(FracPri& b){
 	FracPri result;
 	int numer1 = this->numer + this->whole * this->denom;
 	int numer2 = b.numer + b.whole * b.denom;
-	if(this->denom != b.denom){
-		//cross mutiply
-		result.denom = this->denom* b.denom;
-		result.numer = numer1* b.denom - numer2 * this->denom;
-	}
+	//cross mutiply
+	result.denom = this->denom* b.denom;
+	result.numer = numer1* b.denom - numer2 * this->denom;
+
+	//if negative convert to positive before simplifying
+	//then convert back
 	if(result.numer < 0){
 		result.numer *= -1;
 		result = reduce(result);
@@ -81,11 +87,10 @@ FracPri FracPri::operator *(FracPri& b){
 	FracPri result;
 	int numer1 = this->numer + this->whole * this->denom;
 	int numer2 = b.numer + b.whole * b.denom;
-	if(this->denom != b.denom){
-		//cross mutiply
-		result.denom = this->denom* b.denom;
-		result.numer = numer1 * numer2;
-	}
+	//cross mutiply
+	result.denom = this->denom* b.denom;
+	result.numer = numer1 * numer2;
+
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
@@ -94,11 +99,9 @@ FracPri FracPri::operator /(FracPri& b){
 	FracPri result;
 	int numer1 = this->numer + this->whole * this->denom;
 	int numer2 = b.numer + b.whole * b.denom;
-	if(this->denom != b.denom){
-		//cross mutiply
-		result.denom = this->denom* numer2;
-		result.numer = numer1* b.denom;
-	}
+	//cross mutiply
+	result.denom = this->denom* numer2;
+	result.numer = numer1* b.denom;
 	result = reduce(result);
 	result = makeProper(result);
 	return result;
@@ -155,14 +158,14 @@ ostream& operator <<(ostream& out, FracPri& f){
 }
 
 FracPri FracPri::operator  =(float f){
-	FracPri result;
 
-	result.whole = (int)f;
-	result.numer = (f - result .whole) * 64;
-	result.denom = 64;
+	numer = (f - whole) * 64;
+	denom = 64;
 
-	result = result.reduce(result);
-	return result;
+	*this = reduce(*this);
+	this->whole = f;
+
+	return FracPri(*this);
 }
 
 FracPri::operator float(){
@@ -201,6 +204,8 @@ FracPri FracPri::reduce(FracPri f){
 		a =b;
 		b = r;
 	}
+
+	cout << "a: " << a << endl;
 
 	result.numer = f.numer / a;
 	result.denom = f.denom / a;
