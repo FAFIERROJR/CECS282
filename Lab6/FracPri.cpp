@@ -70,6 +70,9 @@ FracPri FracPri::operator -(FracPri& b){
 		result = reduce(result);
 		result.numer *= -1;
 	}
+	else{
+		result = reduce(result);
+	}
 	result = makeProper(result);
 	return result;
 }
