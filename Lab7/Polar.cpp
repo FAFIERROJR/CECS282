@@ -1,6 +1,11 @@
+//CECS 282
+//Lab 6
+//Francisco Fierro
+
 #include <iostream>
 #include <math.h>
 #include "Polar.h"
+#include "Cartesian.h"
 
 using namespace std;
 
@@ -9,24 +14,33 @@ Polar::Polar(){
 	angle = 0;
 }
 
-Polar::Polar(float r, float a): radius(r), angle(a){}
+Polar::Polar(double r, double a): radius(r), angle(a){}
 
 void Polar::display(){
 	cout << "(" << radius << ", " << angle << ")" << endl;
 }
 
-Polar operator +(Polar& p1, Polar& p2){
-	float x1 = p1.radius * cos(p1.angle);
-	float y1 = p1.radius * sin(p1.angle);
+double Polar::getAngle(){
+	return angle;
+}
+		
+double Polar::getRadius(){
+	return radius;
 
-	float x2 = p2.radius * cos(p2.angle);
-	float y2 = p2.radius * sin(p2.angle);
+}
 
-	float x3 = x1 + x2;
-	float y3 = y1 + y2;
+Polar Polar::operator +(Polar p){
+	Polar result;
 
-	float newRadius = sqrt(x3 * x3 + y3 * y3);
-	float newAngle = atan(y3/x3);
+	//use cartesian objs
+	Cartesian c1 = *this;
+	Cartesian c2 = p;
 
-	return Polar(newRadius, newAngle);
+	Cartesian c = c1 + c2;
+
+	//convert rect to polar coord
+	result.radius = sqrt(c.getX() * c.getX() + c.getY() * c.getY());
+	result.angle = atan(c.getY()/c.getX());
+
+	return result;
 }

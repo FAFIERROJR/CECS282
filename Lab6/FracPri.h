@@ -1,3 +1,6 @@
+//Francisco Fierro
+//CECS 282
+//Lab 6
 #ifndef H_FracPri
 #define H_FracPri
 

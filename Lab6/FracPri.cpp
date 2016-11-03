@@ -133,8 +133,8 @@ bool FracPri::operator <(FracPri& b){
 
 FracPri FracPri::operator +=(int i){
 	FracPri result;
-
-	result.whole = this->whole + i;
+	this->whole += i;
+	result.whole = this->whole;
 	result.numer = this->numer;
 	result.denom = this->denom;
 
@@ -205,7 +205,6 @@ FracPri FracPri::reduce(FracPri f){
 		b = r;
 	}
 
-	cout << "a: " << a << endl;
 
 	result.numer = f.numer / a;
 	result.denom = f.denom / a;

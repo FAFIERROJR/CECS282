@@ -1,4 +1,6 @@
-
+//Francisco Fierro
+//CECS 282
+//Lab 6
 #include <iostream>
 #include "FracPri.h"
 

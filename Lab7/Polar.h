@@ -1,17 +1,26 @@
+//CECS 282
+//Lab 6
+//Francisco Fierro
+
 #ifndef H_POLAR
 #define H_POLAR
 
+#include "Cartesian.h"
+
+class Cartesian;
+
 class Polar{
 	protected:
-		float radius;
-		float angle;
+		double radius;
+		double angle;
 
 	public:
 		Polar();
-		Polar(float, float);
-
+		Polar(double, double);
 		void display();
-		friend Polar operator +(Polar& p1, Polar& p2);
+		double getAngle();
+		double getRadius();
+		Polar operator +(Polar);
 };
 
 #endif
