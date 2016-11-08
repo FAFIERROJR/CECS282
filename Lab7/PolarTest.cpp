@@ -1,3 +1,7 @@
+//CECS 282
+//Lab 7
+//Francisco Fierro
+
 #include <iostream>
 #include "Polar.h"
 

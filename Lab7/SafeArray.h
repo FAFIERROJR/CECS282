@@ -1,3 +1,7 @@
+//CECS 282
+//Lab 7
+//Francisco Fierro
+
 #ifndef H_SAFEARRAY
 #define H_SAFEARRAY
 

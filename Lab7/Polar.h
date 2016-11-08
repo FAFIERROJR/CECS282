@@ -1,5 +1,5 @@
 //CECS 282
-//Lab 6
+//Lab 7
 //Francisco Fierro
 
 #ifndef H_POLAR
