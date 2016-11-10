@@ -43,3 +43,4 @@ Cartesian Cartesian::operator =(Polar p){
 	xCoor = p.getRadius() * cos(p.getAngle());
 	yCoor = p.getRadius() * sin(p.getAngle());
 	return Cartesian(xCoor, yCoor);
+}
