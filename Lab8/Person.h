@@ -1,3 +1,6 @@
+//Fancisco Fierro
+//Lab 8
+
 #ifndef H_PERSON
 #define H_PERSON
 

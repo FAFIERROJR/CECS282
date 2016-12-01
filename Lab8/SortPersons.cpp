@@ -1,3 +1,6 @@
+//Fancisco Fierro
+//Lab 8
+
 #include <iostream>
 #include <string>
 #include "Person.h"

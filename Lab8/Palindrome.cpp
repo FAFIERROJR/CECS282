@@ -1,3 +1,6 @@
+//Fancisco Fierro
+//Lab 8
+
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -35,7 +38,7 @@ void transform(char *raw, char *testStr){
 		if(isalnum(raw[i])){
 			testStr[j] = toupper(raw[i]);
 			j++;
-;		}
+		}
 	}
 	testStr[j] = '\0';
 }
