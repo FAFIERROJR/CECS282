@@ -29,15 +29,16 @@ int main(){
 
 	Average average;
 
-	cout << average.getCars() << " " << average.getTotalTime()<< endl;
+	//cout << average.getCars() << " " << average.getTotalTime()<< endl;
 
-	for(int currentSecond = 1; currentSecond <= totalTime - secondsForWash; currentSecond++){
+	for(int currentSecond = 1; currentSecond <= totalTime; currentSecond++){
 		washer.oneSecond();
 		if(chance.query()){
 			if(arrivalTimes.empty()){
 				washer.startWashing();
 			}
 			arrivalTimes.push(currentSecond);
+			cout << "new car @" << currentSecond << endl;
 
 		}
 		if(!arrivalTimes.empty()){
@@ -48,9 +49,13 @@ int main(){
 					average.nextCar(currentSecond - arrivalTimes.front());
 					washer.startWashing();
 				}
+				else{
+					average.nextCar(0);
+				}
 			}
 		}
 	}
+
 
 	float carsServed = float(average.getCars());
 	float totalWaitTime = float(average.getTotalTime());

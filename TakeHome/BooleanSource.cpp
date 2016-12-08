@@ -1,9 +1,9 @@
 #include "BooleanSource.h"
 #include <stdlib.h>
-#include <time.h>
+#include <ctime>
 
 BooleanSource::BooleanSource(float p): probability(p){
-	srand(0);
+	srand(time(0));
 }
 
 bool BooleanSource::query(){
